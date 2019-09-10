@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+{%include "flash.html"%}
+
+<div class="container-fluid">
+		<div class="row">
+		  <div class="col-md-12 col-sm-12 col-xs-12">
+<h1 class="delete_header"> Are you sure you want to delete {{item.name}}? </h1>
+
+<form action="#" method = 'post'>
+
+	<button type="submit" class="btn btn-success" id="delete_item">Delete</button>
+	
+
+</form>
+<a href = '{{url_for('showItemsDescription',category_name=category_name,item_name=item.name)}}'>
+		<button class="btn btn-danger" id="cancel_delete_item">Cancel</button>
+	</a>
+</div>
+</div>
+</div>
+
+{% endblock %}

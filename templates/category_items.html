@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{%include "header.html"%}
+{%include "flash.html"%}
+{% block content %}
+
+<div class="home_container">
+
+
+    <div class="container-fluid">
+       <div class="row">
+         <div class="col-md-4 col-sm-6 col-xs-12"> 
+<h1 class="category_items_headers">Categories</h1>
+
+
+{% for i in categories %}
+<a class="categories" href='{{url_for('showCategoryItems',category_name = i.name)}}'>
+<div>
+
+<p>{{i.name}}</p>
+
+</div>
+</a>
+{% endfor %}
+</div> 
+
+<div class="col-md-8 col-sm-6 col-xs-12">
+
+<h1 class="category_items_headers">{{category_name}} Items</h1>
+{% for i in items %}
+<a class="items" href='{{url_for('showItemsDescription',category_name=category_name,item_name=i.name)}}'>
+<div>
+
+<p><span>Item Name: </span>{{i.name}}</p>
+
+<p><span>Last Update: </span> {{i.last_modification}} </p>
+
+</div>
+</a>
+
+{% endfor %}
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+{% endblock %}

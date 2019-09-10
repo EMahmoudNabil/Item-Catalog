@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{%include "header.html"%}
+{%include "flash.html"%}
+{% block content %}
+
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+<div>
+    <h1 class="item_description_header">{{item.name}}</h1>
+<p class="item_description">
+
+{{item.description}}
+
+
+</p>
+{%if 'username' in session %}
+<div>
+    <a href="{{url_for('editCatalogItem',item_name=item.name)}}">
+        <button type="button" class="btn btn-success" id="edit_item">Edit Item</button>
+    </a>
+    <a href="{{url_for('deleteCatalogItem',item_name=item.name)}}">
+        <button type="button" class="btn btn-danger" id="delete_item">Delete Item</button>
+    </a>
+</div>
+{%endif%}
+</div>
+
+</div>
+</div>
+
+</div>
+{% endblock %}
